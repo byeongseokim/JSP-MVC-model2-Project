@@ -22,7 +22,8 @@ public class MemberDAO {
 		try {
 			Context ctx = new InitialContext();
 			Context envContext = (Context) ctx.lookup("java:comp/env");
-			dataFactory = (DataSource) envContext.lookup("jdbc/test");
+			dataFactory = (DataSource) envContext.lookup("jdbc/mariadb");
+			System.out.println("testr");
 		} catch (Exception e) {
 			
 			

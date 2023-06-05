@@ -17,7 +17,7 @@ public class MemberController extends HttpServlet {
 	MemberDAO memberDAO;
 	
 	public void init() throws ServletException {
-	memberDAO= new MemberDAO(); //MemberDAO 생성	
+		memberDAO= new MemberDAO(); //MemberDAO 생성	
 	}
 
 	

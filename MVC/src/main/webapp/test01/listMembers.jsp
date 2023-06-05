@@ -34,12 +34,12 @@ request.setCharacterEncoding("UTF-8");
 			<td width="7%"><b>가입일</b></td>
 		</tr>
 		<c:choose>
-			<c:when test="${ empty memberList}">
+			<c:when test="${ empty membersList}">
 				<tr>
 					<td colspan="5"><b>등록된 회원이 없습니다.</b></td>
 				</tr>
 			</c:when>
-			<c:when test="${!empty memberList }">
+			<c:when test="${!empty membersList }">
 				<c:forEach var="mem" items="${membersList }">
 					<tr align="center">
 						<td>${mem.id }</td>
@@ -47,6 +47,7 @@ request.setCharacterEncoding("UTF-8");
 						<td>${mem.name }</td>
 						<td>${mem.email }</td>
 						<td>${mem.joinDate }</td>
+						</tr>
 				</c:forEach>
 			</c:when>
 		</c:choose>
