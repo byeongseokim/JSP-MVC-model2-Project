@@ -32,7 +32,7 @@ request.setCharacterEncoding("UTF-8");
 			<td>작성일</td>
 		</tr>
 		<c:choose>
-			<c:when test="${empty articlesList }">
+			<c:when test="${articlesList ==null}">
 				<tr height="10">
 					<td colspan="4">
 						<p align="center">
@@ -41,7 +41,7 @@ request.setCharacterEncoding("UTF-8");
 					</td>
 				</tr>
 			</c:when>
-			<c:when test="${!empty articlesList }">
+			<c:when test="${ articlesList !=null }">
 				<c:forEach var="article" items="${articlesList }" varStatus="articleNum">
 					<tr align="center">
 						<td width="5%">${articleNum.count }</td>
@@ -58,7 +58,7 @@ request.setCharacterEncoding("UTF-8");
 								</c:when>
 								<c:otherwise>
 									<a class='cls1'
-										href="${contextPath }/board/viewArticle.do?articeNO=${article.articleNO}">${article.title }</a>
+										href="${contextPath }/board/viewArticle.do?articleNO=${article.articleNO}">${article.title }</a>
 								</c:otherwise>
 							</c:choose></td>
 						<td width="10%"><fmt:formatDate value="${article.writeDate }" />

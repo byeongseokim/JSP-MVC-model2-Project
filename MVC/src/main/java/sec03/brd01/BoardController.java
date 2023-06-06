@@ -46,13 +46,13 @@ public class BoardController extends HttpServlet {
 			if (action == null) {
 				articlesList = boardService.listArticles();
 				request.setAttribute("articlesList", articlesList);
-				nextPage = "/board01/ listArticles.jsp";
+				nextPage = "/board01/listArticles.jsp";
 			} else if (action.equals("/listArticles.do"))
 				
 			{
 				articlesList = boardService.listArticles();
 				request.setAttribute("articlesList", articlesList);
-				nextPage = "/board01/ listArticles.jsp";
+				nextPage = "/board01/listArticles.jsp";
 			}
 			RequestDispatcher dispatch = request.getRequestDispatcher(nextPage);
 			dispatch.forward(request, response);
