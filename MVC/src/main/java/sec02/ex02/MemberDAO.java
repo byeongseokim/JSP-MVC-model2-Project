@@ -111,14 +111,13 @@ public class MemberDAO {
 		String email = memberVO.getEmail();
 		try {
 			conn = dataFactory.getConnection();
-			String query = "update t_member set pwd=?,name?,email=?  where id=?";
+			String query = "update t_member set pwd=?,name=?,email=?  where id=?";
 			System.out.println(query);
-			pstmt.setString(0, query);
 			pstmt = conn.prepareStatement(query); //PrepareStatement 객체 생성하면서 SQL문을 인자로 전달
-			pstmt.setString(1, id);
-			pstmt.setString(2, pwd);
-			pstmt.setString(3, name);
-			pstmt.setString(4, email);
+			pstmt.setString(1, pwd);
+			pstmt.setString(2, name);
+			pstmt.setString(3, email);
+			pstmt.setString(4, id);
 			pstmt.executeUpdate();       //SQL문 실행
 			pstmt.close();
 			conn.close();
@@ -130,7 +129,7 @@ public class MemberDAO {
 	public void delMember(String id) {
 		try {
 			conn = dataFactory.getConnection();
-			String query = "delete from t_member hwere id=?";
+			String query = "delete from t_member where id=?";
 			System.out.println(query);
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, id);

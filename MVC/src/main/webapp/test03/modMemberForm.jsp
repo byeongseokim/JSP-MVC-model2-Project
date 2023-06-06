@@ -28,7 +28,7 @@ request.setCharacterEncoding("UTF-8");
 				<td width="200">
 					<p align="right">아이디
 				</td>
-				<td width="400"><input type="text" name="id"></td>
+				<td width="400"><input type="text" name="id" value="${memInfo.id }" disabled></td>
 			</tr>
 			<tr>
 				<td width="200">

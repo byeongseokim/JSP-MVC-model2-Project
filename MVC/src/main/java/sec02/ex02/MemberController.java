@@ -43,7 +43,7 @@ public class MemberController extends HttpServlet {
 		{
 			List<MemberVO> membersList = memberDAO.listMembers();
 			request.setAttribute("membersList", membersList);
-			nextPage = "/test03/listMembers.jsp";
+			nextPage ="/test03/listMembers.jsp";
 		} else if (action.equals("/addMember.do")) {
 			String id = request.getParameter("id");
 			String pwd = request.getParameter("pwd");
@@ -51,14 +51,14 @@ public class MemberController extends HttpServlet {
 			String email = request.getParameter("email");
 			MemberVO memberVO = new MemberVO(id, pwd, name, email);
 			memberDAO.addMember(memberVO);
-			nextPage = "/member/listMembers.do";
+			nextPage ="/member/listMembers.do";
 		} else if (action.equals("/memberForm.do")) {
-			nextPage = "/test03/memberForm.jsp";
+			nextPage ="/test03/memberForm.jsp";
 		} else if (action.equals("/modMemberForm.do")) {
 			String id=request.getParameter("id");
 			MemberVO memInfo = memberDAO.findMember(id);
 			request.setAttribute("memInfo", memInfo);
-			nextPage = "/test03/modMemberForm.jsp";
+			nextPage ="/test03/modMemberForm.jsp";
 		} else if (action.equals("/modMember.do")) 
 		{
 			String id = request.getParameter("id"); 
