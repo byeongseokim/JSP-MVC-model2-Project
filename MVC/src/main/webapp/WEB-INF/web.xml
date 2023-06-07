@@ -9,7 +9,11 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
+<<<<<<< Updated upstream
     <jsp-config>
+=======
+  <jsp-config>
+>>>>>>> Stashed changes
     <taglib>
          <taglib-uri>jstl-c</taglib-uri>
          <taglib-location>/WEB-INF/tlds/c.tld</taglib-location>
