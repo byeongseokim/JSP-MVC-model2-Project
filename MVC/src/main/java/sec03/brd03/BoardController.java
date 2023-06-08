@@ -1,14 +1,14 @@
-package sec03.brd02;
+package sec03.brd03;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
-import javax.servlet.Servlet;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
-
+import org.apache.commons.io.FileUtils;
 
 //@WebServlet("/board/*")
 public class BoardController extends HttpServlet {
@@ -28,23 +28,23 @@ public class BoardController extends HttpServlet {
 	BoardService boardService;
 	ArticleVO articleVO;
 
-	
 	public void init(ServletConfig config) throws ServletException {
 		boardService = new BoardService();
 		articleVO = new ArticleVO();
 	}
 
-	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		doHandle(request, response);
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)	throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doHandle(request, response);
 	}
 
-	private void doHandle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	private void doHandle(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		String nextPage = "";
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html; charset=utf-8");
@@ -63,6 +63,7 @@ public class BoardController extends HttpServlet {
 			} else if (action.equals("/articleForm.do")) {
 				nextPage = "/board03/articleForm.jsp";
 			} else if (action.equals("/addArticle.do")) {
+				int articleNO = 0;
 				Map<String, String> articleMap = upload(request, response);
 				String title = articleMap.get("title");
 				String content = articleMap.get("content");
@@ -73,8 +74,21 @@ public class BoardController extends HttpServlet {
 				articleVO.setTitle(title);
 				articleVO.setContent(content);
 				articleVO.setImageFileName(imageFileName);
-				boardService.addArticle(articleVO);
-				nextPage = "/board/listArticles.do";
+				articleNO = boardService.addArticle(articleVO);
+
+				if (imageFileName != null && imageFileName.length() != 0) {
+					File srcFile = new File(ARTICLE_IMAGE_REPO + "\\" + "temp" + "\\" + imageFileName); // temp 폴더에 입시로
+																										// 업로드 된 파일 객체를
+																										// 생성
+					File destDir = new File(ARTICLE_IMAGE_REPO + "\\" + articleNO);
+					destDir.mkdir(); // CURR_IMAGE_REPO_PETH의 경로 하위에 글 번호로 폴더를 생성 해줌
+					FileUtils.moveFileToDirectory(srcFile, destDir, true); // temp 폴더의 파일을 글 번호로 이름으로 하는 폴더로 이동시킴
+				}
+				PrintWriter pw = response.getWriter();
+				pw.print("<script>" + "  alert('새글을 추가했습니다.');" + " location.href='" + request.getContextPath()
+						+ "/board/listArticles.do';" + "</script>"); // 새 글 등록 메시지를 나타낸 후 자바스크립트 location 객체의 href 속성을
+																		// 이용해 글 목록을 요청함.
+				return;
 			}
 
 			RequestDispatcher dispatch = request.getRequestDispatcher(nextPage);
@@ -84,7 +98,8 @@ public class BoardController extends HttpServlet {
 		}
 	}
 
-	private Map<String, String> upload(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	private Map<String, String> upload(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		Map<String, String> articleMap = new HashMap<String, String>();
 		String encoding = "utf-8";
 		File currentDirPath = new File(ARTICLE_IMAGE_REPO);
@@ -101,9 +116,9 @@ public class BoardController extends HttpServlet {
 					articleMap.put(fileItem.getFieldName(), fileItem.getString(encoding));
 				} else {
 					System.out.println("파라미터명:" + fileItem.getFieldName());
-					//System.out.println("파일명:" + fileItem.getName());
+					// System.out.println("파일명:" + fileItem.getName());
 					System.out.println("파일크기:" + fileItem.getSize() + "bytes");
-					//articleMap.put(fileItem.getFieldName(), fileItem.getName());
+					// articleMap.put(fileItem.getFieldName(), fileItem.getName());
 					if (fileItem.getSize() > 0) {
 						int idx = fileItem.getName().lastIndexOf("\\");
 						if (idx == -1) {
@@ -111,9 +126,7 @@ public class BoardController extends HttpServlet {
 						}
 
 						String fileName = fileItem.getName().substring(idx + 1);
-						System.out.println("파일명:" + fileName);
-						articleMap.put(fileItem.getFieldName(), fileName);  //익스플로러에서 업로드 파일의 경로 제거 후 map에 파일명 저장
-						File uploadFile = new File(currentDirPath + "\\" + fileName);
+						File uploadFile = new File(currentDirPath + "\\temp\\" + fileName);
 						fileItem.write(uploadFile);
 
 					} // end if
