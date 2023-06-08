@@ -69,7 +69,7 @@ public class BoardDAO {
 	private int getNewArticleNO() {
 		try {
 			conn = dataFactory.getConnection();
-			String query = "SELECT max(articleNO) from t_board ";
+			String query = "SELECT MAX(articleNO) FROM t_board ";
 			System.out.println(query);
 			pstmt = conn.prepareStatement(query);
 			ResultSet rs = pstmt.executeQuery(query);
@@ -93,7 +93,7 @@ public class BoardDAO {
 			String content = article.getContent();
 			String id = article.getId();
 			String imageFileName = article.getImageFilename();
-			String query = "INSERT INTO t_bord (articleNO, parentNO, title, content, imageFileName, id)"
+			String query = "INSERT INTO t_board (articleNO, parentNO, title, content, imageFileName, id)"
 					+ " VALUES (?, ?, ?, ?, ?, ?)";
 			System.out.println(query);
 			pstmt = conn.prepareStatement(query);

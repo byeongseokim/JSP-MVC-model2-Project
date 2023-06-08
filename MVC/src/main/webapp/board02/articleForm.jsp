@@ -14,21 +14,20 @@ request.setCharacterEncoding("UTF-8");
 <title>글쓰기창</title>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript">
-function readURL(input) {
-	
+	function readURL(input) {
 
-if (input.files && input.files[0]) {
-	var reader = new FileReader();
-	reader.onload = function(e) {
-		$('#preview').attr('src', e.target.result);
+		if (input.files && input.files[0]) {
+			var reader = new FileReader();
+			reader.onload = function(e) {
+				$('#preview').attr('src', e.target.result);
+			}
+			reader.readAsDataURL(input.files[0]);
+		}
 	}
-	reader.readAsDataURL(input.files[0]);
+	function backToList(obj) {
+		obj.action = "${contextPath}/board/listArticles.do"
+		obj.submit();
 	}
-}
-function backToList(obj) {
-	obj.action = "${contextPath}/board/listArticles.do"
-	obj.submit();
-}
 </script>
 </head>
 <body>
@@ -41,6 +40,11 @@ function backToList(obj) {
 				<td align="right">글제목:</td>
 				<td colspan="2"><input type="text" size="67" maxlength="500"
 					name="title" /></td>
+			</tr>
+			<tr>
+				<td align="right" valign="top"><br>글내용:</td>
+				<td colspan="2"><textarea name="content" rows="10" cols="65"
+						maxlength="4000"></textarea></td>
 			</tr>
 			<tr>
 				<td align="right">이미지파일 첨부:</td>
