@@ -1,4 +1,4 @@
-package sec03.brd05;
+package sec03.brd06;
 
 import java.io.File;
 import java.io.IOException;
@@ -56,13 +56,13 @@ public class BoardController extends HttpServlet {
 			if (action == null) {
 				articlesList = boardService.listArticles();
 				request.setAttribute("articlesList", articlesList);
-				nextPage = "/board04/listArticles.jsp";
+				nextPage = "/board05/listArticles.jsp";
 			} else if (action.equals("/listArticles.do")) {
 				articlesList = boardService.listArticles();
 				request.setAttribute("articlesList", articlesList);
-				nextPage = "/board04/listArticles.jsp";
+				nextPage = "/board05/listArticles.jsp";
 			} else if (action.equals("/articleForm.do")) {
-				nextPage = "/board04/articleForm.jsp";
+				nextPage = "/board05/articleForm.jsp";
 			} else if (action.equals("/addArticle.do")) {
 				int articleNO = 0;
 				Map<String, String> articleMap = upload(request, response);
@@ -81,7 +81,7 @@ public class BoardController extends HttpServlet {
 					File destDir = new File(ARTICLE_IMAGE_REPO + "\\" + articleNO);
 					destDir.mkdirs();
 					FileUtils.moveFileToDirectory(srcFile, destDir, true);
-					srcFile.delete();
+
 				}
 				PrintWriter pw = response.getWriter();
 				pw.print("<script>" + "  alert('새글을 추가했습니다.');" + " location.href='" + request.getContextPath()
@@ -92,7 +92,7 @@ public class BoardController extends HttpServlet {
 				String articleNO = request.getParameter("articleNO");
 				articleVO = boardService.viewArticle(Integer.parseInt(articleNO));
 				request.setAttribute("article", articleVO);
-				nextPage = "/board04/viewArticle.jsp";
+				nextPage = "/board05/viewArticle.jsp";
 
 			} else if (action.equals("/modArticle.do")) {
 				Map<String, String> articleMap = upload(request, response);
@@ -119,6 +119,21 @@ public class BoardController extends HttpServlet {
 				PrintWriter pw = response.getWriter();
 				pw.print("<script>" + "  alert('글을 수정했습니다.');" + " location.href='" + request.getContextPath()
 						+ "/board/viewArticle.do?articleNO=" + articleNO + "';" + "</script>");
+				return;
+			} else if (action.equals("/removeArticle.do")) {
+				int articleNO = Integer.parseInt(request.getParameter("articleNO"));
+				List<Integer> articleNOList = boardService.removeArticle(articleNO);
+				for (int _articleNO : articleNOList) {
+					File imgDir = new File(ARTICLE_IMAGE_REPO + "\\" + _articleNO);
+					if (imgDir.exists()) {
+						FileUtils.deleteDirectory(imgDir);
+					}
+
+				}
+
+				PrintWriter pw = response.getWriter();
+				pw.print("<script>" + " alert('글을 삭제했습니다.');" + "location.href='" + request.getContextPath()
+						+ "/board/listArticles.do';" + "</script>");
 				return;
 			}
 
