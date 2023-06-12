@@ -1,0 +1,8 @@
+회원정보 불러오기 
+http://localhost:8090/member/listmember.do
+
+회원정보 수정, 삭제하기
+http://localhost:8090/member/modmember.do
+
+글목록창
+http://localhost:8090/board/listArticles.do
