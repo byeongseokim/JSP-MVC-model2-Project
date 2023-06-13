@@ -24,6 +24,14 @@
 <br><br>
 
 ### :small_orange_diamond: 🥁구현 기능 목록
+* 회원 기능
+  - 회원가입
+     + 아이디, 패스워드
+  - 로그인
+     + 아이디, 패스워드
+  - 회원가입
+     + 아이디 ,비밀번호, 이름, 이메일
+
 * 게시판 기능
   - 게시글 쓰기
      + 글제목, 글내용, 이미지파일 첨부 작성
@@ -35,16 +43,40 @@
   - 게시글 삭제 기능
   - 게시글에 답글 기능 
   
-<br><br>
+<br></br>
 ***
 ### :small_orange_diamond: 🎯구현 결과
-#### 0) 시작/메인화면
-![image](https://user-images.githubusercontent.com/130538673/245406179-fb66fecb-a4ba-4cef-bb54-3b7aba8e2ab5.png)
+## 🙋‍♂️회원기능 
+#### 0) 회원정보창 메인화면
+![image](https://user-images.githubusercontent.com/130538673/245407800-20dec82c-b0b7-4c7c-81ce-39d643d9c44a.png)
 ***
 
+#### 1) 회원 가입창
+![image](https://user-images.githubusercontent.com/130538673/245409138-79bb183b-7142-4a83-8bac-9fb3429426fc.png)
+***
+
+#### 1-1) 회원 가입 확인
+![image](https://user-images.githubusercontent.com/130538673/245409229-2eef2ba3-d8a7-4134-9058-da57eb198ad1.png)
+***
+
+#### 2) 회원 정보 수정창
+![image](https://user-images.githubusercontent.com/130538673/245409393-0f77ea70-a0ee-4463-9d95-0a4109846e28.png)
+***
+
+#### 3) 회원 정보 삭제
+![image](https://user-images.githubusercontent.com/130538673/245412111-328116f6-e7c6-4d41-ba36-8a6df7da2796.png)
+***
+
+#### 3-1) 삭제 된 모습
+![image](https://user-images.githubusercontent.com/130538673/245407800-20dec82c-b0b7-4c7c-81ce-39d643d9c44a.png)
+
+***
+
+## 📋게시판 기능 
+#### 0) 시작/메인화면
+![image](https://user-images.githubusercontent.com/130538673/245406179-fb66fecb-a4ba-4cef-bb54-3b7aba8e2ab5.png)
+
 #### 1) 글 쓰기
-
-
 ![image](https://user-images.githubusercontent.com/130538673/245404878-d81daedf-1d88-403e-9a9f-d7c84feaf6a5.png)
 
 #### 1-1) 글 쓰기 alert
