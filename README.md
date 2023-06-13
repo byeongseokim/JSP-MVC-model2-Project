@@ -1,4 +1,4 @@
-### :small_orange_diamond: 📢JSP : MVC2 게시판 만들기
+# :small_orange_diamond: 📢JSP : MVC2 게시판 만들기
 
 <br><br>
 
@@ -19,7 +19,7 @@
 
 ### :small_orange_diamond: 📍개발 환경
 
-<img src="https://www.eclipse.org/downloads/images/javaee.png" width="60" height="60">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://cdn-icons-png.flaticon.com/512/5968/5968282.png" width="100" height="100">&nbsp;&nbsp;&nbsp;<img src="https://cdn.icon-icons.com/icons2/2699/PNG/512/mariadb_logo_icon_168996.png" width="150" height="100">
+<img src="https://www.eclipse.org/downloads/images/javaee.png" width="60" height="60">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://cdn-icons-png.flaticon.com/512/5968/5968282.png" width="100" height="100">&nbsp;&nbsp;&nbsp;<img src="https://cdn.icon-icons.com/icons2/2699/PNG/512/mariadb_logo_icon_168996.png" width="150" height="100"><img src="https://user-images.githubusercontent.com/130538673/245403670-6c15fc21-52e8-4ed6-970c-878ce92b1c5f.png" width="100" height="100">
 
 <br><br>
 
@@ -39,19 +39,19 @@
 ***
 ### :small_orange_diamond: 🎯구현 결과
 #### 0) 시작/메인화면
-![image](https://raw.githubusercontent.com/byeongseokim/JSP-MVC-model2-Project/ee2994c25d1a667760f4c8037bc2ee7b3ee05bda/Images/Main.0/%EB%A9%94%EC%9D%B8.jpg)
+![image](https://user-images.githubusercontent.com/130538673/245406179-fb66fecb-a4ba-4cef-bb54-3b7aba8e2ab5.png)
 ***
 
 #### 1) 글 쓰기
 
 
-![image](https://raw.githubusercontent.com/byeongseokim/JSP-MVC-model2-Project/ee2994c25d1a667760f4c8037bc2ee7b3ee05bda/Images/write.1/%EC%83%88%20%EA%B8%80%20%EC%93%B0%EA%B8%B0%20%EA%B8%B0%EB%8A%A5.jpg)
+![image](https://user-images.githubusercontent.com/130538673/245404878-d81daedf-1d88-403e-9a9f-d7c84feaf6a5.png)
 
 #### 1-1) 글 쓰기 alert
 ![image](https://raw.githubusercontent.com/byeongseokim/JSP-MVC-model2-Project/ee2994c25d1a667760f4c8037bc2ee7b3ee05bda/Images/write.1/%EC%83%88%20%EA%B8%80%20%EC%93%B0%EA%B8%B0%20%EA%B8%B0%EB%8A%A52.jpg)
 
 #### 1-2) 글이 추가된 모습
-![image](https://raw.githubusercontent.com/byeongseokim/JSP-MVC-model2-Project/ee2994c25d1a667760f4c8037bc2ee7b3ee05bda/Images/write.1/%EC%83%88%20%EA%B8%80%20%EC%93%B0%EA%B8%B0%20%EA%B8%B0%EB%8A%A53.jpg)
+![image](https://user-images.githubusercontent.com/130538673/245406698-6ee2d9fd-96a4-4b74-b34f-c63bac6d332e.png)
 
 <br><br>
 ***
@@ -59,18 +59,18 @@
 
 
 
-![image](https://raw.githubusercontent.com/byeongseokim/JSP-MVC-model2-Project/ee2994c25d1a667760f4c8037bc2ee7b3ee05bda/Images/View.2/%EA%B8%80%20%EC%83%81%EC%84%B8%20%EB%B3%B4%EA%B8%B0%20%EA%B8%B0%EB%8A%A5.jpg)
+![image](https://user-images.githubusercontent.com/130538673/245403315-26dcc1ad-5f2a-4f2f-91e7-fecb9192f40a.png)
 
 <br><br>
 ***
 #### 3) 게시글 수정
 
 
-![image](https://raw.githubusercontent.com/byeongseokim/JSP-MVC-model2-Project/ee2994c25d1a667760f4c8037bc2ee7b3ee05bda/Images/Mod.3/%EC%88%98%EC%A0%95%EA%B3%BC%EC%A0%95.jpg)
+![image](https://user-images.githubusercontent.com/130538673/245402182-fc9187f1-d098-4bf8-b11e-431ecad6d6cf.png)
 
 #### 3-1) 게시글 수정 alert
 
-![image](https://raw.githubusercontent.com/byeongseokim/JSP-MVC-model2-Project/ee2994c25d1a667760f4c8037bc2ee7b3ee05bda/Images/Mod.3/%EC%88%98%EC%A0%95%EA%B3%BC%EC%A0%952.jpg)
+![image](https://github.com/byeongseokim/JSP-MVC-model2-Project/blob/master/Images/Mod.3/%EC%88%98%EC%A0%95%EA%B3%BC%EC%A0%952.jpg?raw=true)
 
 <br><br>
 ***
@@ -78,7 +78,7 @@
 
 - 상세보기에서 삭제하기를 누르면 게시글이 삭제가 되는 기능
 
-![image](https://raw.githubusercontent.com/byeongseokim/JSP-MVC-model2-Project/ee2994c25d1a667760f4c8037bc2ee7b3ee05bda/Images/View.2/%EA%B8%80%20%EC%83%81%EC%84%B8%20%EB%B3%B4%EA%B8%B0%20%EA%B8%B0%EB%8A%A5.jpg)
+![image](https://user-images.githubusercontent.com/130538673/245402182-fc9187f1-d098-4bf8-b11e-431ecad6d6cf.png)
 
 #### 4-1) 게시글 삭제 alert
 
@@ -90,7 +90,7 @@
 
 - 상세보기에서 답글쓰기를 누르면 답글을 쓸 수 있는 화면으로 전환되는 기능
 
-![image](https://raw.githubusercontent.com/byeongseokim/JSP-MVC-model2-Project/ee2994c25d1a667760f4c8037bc2ee7b3ee05bda/Images/reply.5/%EB%8B%B5%EA%B8%80%EB%B0%98%EC%98%81.jpg)
+![image](https://user-images.githubusercontent.com/130538673/245402943-b8e5d36b-ab90-42fe-adf0-e651d91b9095.png)
 
 #### 5-1) 답글 alert
 - 답글 반영하기를 누르면
